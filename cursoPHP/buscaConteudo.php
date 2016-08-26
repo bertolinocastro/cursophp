@@ -1,6 +1,6 @@
 <?php 
 
-var_dump($_SERVER);
+//var_dump($_SERVER);
 
 //REQUEST
 echo "Arquivo: " . $_REQUEST['data'] . "\n<br> ";
@@ -22,9 +22,11 @@ echo "<input type='hidden' id='urlConteudo' value='" . dirname($urlDir) . "'>";
 
 
 //CONTEUDO 
-$conteudoArquivo = file_get_contents( $arquivoAProcessar );
+//$conteudoArquivo = file_get_contents( $arquivoAProcessar );
 
-echo $conteudoArquivo;
+//echo $conteudoArquivo;
+
+include_once $arquivoAProcessar;
 
 
 ?>
