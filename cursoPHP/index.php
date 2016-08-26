@@ -9,6 +9,7 @@ if( isset( $_POST['title'] ) ){
 <html>
 <head>
 	<title><?php echo $title; ?></title>
+	<meta charset="utf-8">
 	<script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -18,8 +19,6 @@ if( isset( $_POST['title'] ) ){
 </head>
 <body>
 
-
-<h6> Caso queira voltar à pasta anterior <a href="..">clique aqui</a>  </h6>
 <h4> Caro viajante, siga em suas questões logo a baixo! </h4>
 
 <div class='container-fluid'>
@@ -56,7 +55,7 @@ function procuraPasta( $diretorio = null ){
 					?>
 					<button type='button' class='localDir' value='curso/<?php echo $files; ?>'> Diretório: <?php echo $files; ?></button>
 
-					<ul>
+					<ul class='diretorioFechado'>
 
 					<?php
 						procuraPasta( $diretorio . $files . "/" );
@@ -91,7 +90,7 @@ procuraPasta( $diretorioPadrao );
 			</ul>
 
 		</div>
-
+			<h6> Caso queira voltar à pasta anterior <a href="#" id='voltarConteudoPag' >clique aqui</a>  </h6>
 			<div class='col-md-9' id='conteudoPag'>
 			</div>
 			

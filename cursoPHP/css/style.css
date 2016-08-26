@@ -1,7 +1,14 @@
 div#painel/* , div#conteudoPag*/{
-	overflow: scroll;
+	overflow: hidden;
 }
-
 div {
 	border: 1px dotted #ccc;
+}
+.diretorioAberto{
+	max-height: 100%;
+	overflow: hidden;
+}
+.diretorioFechado{
+	max-height: 0;
+	overflow: hidden;
 }
