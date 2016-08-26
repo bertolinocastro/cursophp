@@ -5,17 +5,16 @@ if( isset( $_POST['title'] ) ){
 }else{
 	$title = "Página inicial";
 }
-
-print <<< HEREDOC
-
+?>
 <html>
 <head>
-	<title> $title </title>
+	<title><?php echo $title; ?></title>
 	<script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script src='js/scripts.js'></script>
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -23,14 +22,15 @@ print <<< HEREDOC
 <h6> Caso queira voltar à pasta anterior <a href="..">clique aqui</a>  </h6>
 <h4> Caro viajante, siga em suas questões logo a baixo! </h4>
 
+<div class='container-fluid'>
 
-HEREDOC;
+	<div class='row'>
+		<div class='col-md-3' id='painel'>
+			<ul>
 
-$arquivos = scandir( __DIR__ . "\\curso\\" );
-var_dump( $arquivos );
-echo "<ul>";
+<?php
 
-$diretorioPadrao = __DIR__ . "\\curso\\";
+$diretorioPadrao = __DIR__ . "/curso/";
 
 function procuraPasta( $diretorio = null ){
 
@@ -43,29 +43,39 @@ function procuraPasta( $diretorio = null ){
 		foreach( $arquivos as $files ){
 
 			
-			if( ! in_array( $files , array( "." , ".." ) ) ){
-				echo "<li>";
+			if( ! in_array( $files , array( "." , ".." ) ) ){	?>
+
+				<li>
+
+				<?php
 				if( is_dir(  $diretorio . $files ) ){
 
 
 					//$arqDir = scandir( __DIR__ . "/curso/" . $files . "/" );
 					
-					echo  "<button type='button' class='localDir' value='curso\\".$files."'> Diretório: " . $files . "</button>";
+					?>
+					<button type='button' class='localDir' value='curso/<?php echo $files; ?>'> Diretório: <?php echo $files; ?></button>
 
-					echo "<ul>";
-						procuraPasta( $diretorio . $files . "\\" );
-					echo "</ul>";
+					<ul>
+
+					<?php
+						procuraPasta( $diretorio . $files . "/" );
+					?>
+
+					</ul>
 					
 
-
+				<?php
 				}else{
 					
+				?>
+					<button type='button' class='localArq' value='<?php echo $diretorio . $files ; ?>'> Arquivo: <?php echo $files; ?></button><br>
 
-					echo  "<button type='button' class='localArq' value='" . $diretorio .$files."'> Arquivo: " . $files . "</button>\n<br>";
-
-
+				<?php
 				}
-				echo "</li>";
+				?>
+				</li>
+			<?php
 			}
 			
 
@@ -77,27 +87,15 @@ function procuraPasta( $diretorio = null ){
 
 procuraPasta( $diretorioPadrao );
 
+?>
+			</ul>
 
-echo "</ul>";
-
-
-print <<<HEREDOC
-<div class='container-fluid'>
-
-	<div class='row' >
-
-		<div class='col-md-12' id='conteudo'>
 		</div>
 
-	</div>
-
-
-</div>
-HEREDOC;
-
-print <<< HEREDOC
+			<div class='col-md-9' id='conteudoPag'>
+			</div>
+			
+		</div>
+	</div><!-- .container-fluid -->
 </body>
 </html>
-HEREDOC;
-
-?>

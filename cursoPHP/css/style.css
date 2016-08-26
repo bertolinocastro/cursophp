@@ -1,0 +1,7 @@
+div#painel/* , div#conteudoPag*/{
+	overflow: scroll;
+}
+
+div {
+	border: 1px dotted #ccc;
+}
