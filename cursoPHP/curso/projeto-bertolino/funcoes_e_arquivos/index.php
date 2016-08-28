@@ -1,7 +1,7 @@
 <?php
 
 
-$arq = fopen("oi.txt", "w");
+$arq = fopen( "oi.txt", "w");
 
 fwrite($arq, "line 1\r\n");
 fwrite($arq, "line 2");

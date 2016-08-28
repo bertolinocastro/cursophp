@@ -1,9 +1,5 @@
 <?php 
 session_start( );
-require_once( '../../kint-master/Kint.class.php' );
-
-d( $_SESSION );
-
 
 ?>
 

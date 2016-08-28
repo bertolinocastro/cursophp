@@ -1,5 +1,7 @@
 <?php
 
+//Conversa com Valter sobre IIFE's e arrow functions do JS
+
 ( () => function(){
 
 	$data = $_GET['data'];

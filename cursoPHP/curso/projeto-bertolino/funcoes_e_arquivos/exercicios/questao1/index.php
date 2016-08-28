@@ -14,7 +14,7 @@ if(isset($_GET['val1'],$_GET['val2'])){
 ?>
 
 <form method="GET" action="">
-	<input type="number" name="val1" value="<?php echo $_GET['val1'] ?>"><br>
-	<input type="number" name="val2" value="<?php echo $_GET['val2'] ?>"><br>
+	<input type="number" name="val1" value="<?php isset($_GET['val1']) ? print $_GET['val1'] : print ''; ?>"><br>
+	<input type="number" name="val2" value="<?php isset($_GET['val2']) ? print $_GET['val2'] : print ''; ?>"><br>
 	<input type="submit" name="" value="Calcular">
 </form>

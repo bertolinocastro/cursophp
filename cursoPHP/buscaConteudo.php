@@ -1,6 +1,12 @@
 <?php 
 
-var_dump($_SERVER);
+//var_dump($_SERVER);
+
+//SABER O QUE ESTÁ SENDO ENVIADO VIA POST
+echo "Post: " ;
+var_dump($_POST);
+echo "Get: ";
+var_dump($_GET);
 
 //REQUEST
 echo "Arquivo: " . $_REQUEST['data'] . "\n<br> ";
@@ -22,9 +28,11 @@ echo "<input type='hidden' id='urlConteudo' value='" . dirname($urlDir) . "'>";
 
 
 //CONTEUDO 
-$conteudoArquivo = file_get_contents( $arquivoAProcessar );
+//$conteudoArquivo = file_get_contents( $arquivoAProcessar );
 
-echo $conteudoArquivo;
+//echo $conteudoArquivo;
+
+include_once $arquivoAProcessar;
 
 
 ?>

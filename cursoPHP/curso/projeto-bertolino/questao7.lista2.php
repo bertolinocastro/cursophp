@@ -1,8 +1,8 @@
 <?php 
 session_start( );
-require_once( '../../kint-master/Kint.class.php' );
+//include_once( '../../kint-master/Kint.class.php' );
 
-d( $_SESSION );
+var_dump( $_SESSION );
 
 
 ?>
